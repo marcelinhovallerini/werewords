@@ -1,413 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700&display=swap');
-
-html{
-    width:100%;
-    min-height:100%;
-    background:#05070d;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-
-    font-family:'Cinzel',serif;
-
-    margin:0;
-
-    width:100%;
-    min-height:100vh;
-
-    overflow:auto;
-
-    color:white;
-
-    background:
-        linear-gradient(rgba(20,10,0,.35),rgba(20,10,0,.35)),
-        url("madeira.jpg");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-}
-
-#app{
-
-    position:relative;
-
-    margin:18px;
-    min-height:calc(100vh - 36px);
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    padding:40px;
-
-    background:transparent;
-
-    border:5px solid #9c6d16;
-
-    border-radius:28px;
-
-    box-shadow:
-
-        inset 0 0 0 3px #d8b45b,
-
-        inset 0 0 45px rgba(0,0,0,.45),
-
-        0 0 25px rgba(0,0,0,.6);
-
-}
-
-#app::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:14px;
-
-    border:2px solid rgba(240,190,80,.7);
-
-    border-radius:18px;
-
-    pointer-events:none;
-
-}
-
-#app > *{
-    position:relative;
-    z-index:1;
-}
-
-.titulo{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:15px;
-    width:100%;
-}
-
-.titulo h1{
-    margin:0;
-}
-
-h1{
-
-    font-family:'Cinzel Decorative',serif;
-
-    font-size:90px;
-
-    color:#e3b548;
-
-    letter-spacing:3px;
-
-    text-shadow:
-    2px 2px 0 #4b2b08,
-    4px 4px 0 #2a1703,
-    0 0 12px rgba(255,214,90,.35);
-
-}
-
-#conteudo{
-
-    width:100%;
-    max-width:1200px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    gap:30px;
-
-}
-
-h2{
-
-    font-size:48px;
-    text-align:center;
-    color:#e9c86c;
-
-    letter-spacing:2px;
-
-}
-
-p{
-
-    font-size:28px;
-    text-align:center;
-    line-height:1.5;
-    color:#ecd89d;
-
-}
-
-button{
-
-    font-family:'Cinzel',serif;
-
-    font-size:28px;
-
-    font-weight:bold;
-
-    color:#f3d37f;
-
-    padding:18px 42px;
-
-    min-width:340px;
-
-    border-radius:14px;
-
-    border:3px solid #bb8f34;
-
-    background:
-
-        linear-gradient(#6a4320,#38200b);
-
-    box-shadow:
-
-        inset 0 2px 0 rgba(255,240,180,.3),
-
-        inset 0 -3px 0 rgba(0,0,0,.4),
-
-        0 8px 18px rgba(0,0,0,.45);
-
-}
-
-button:hover{
-
-    background:
-    linear-gradient(#62411d,#3d2108);
-
-    transform:translateY(-2px);
-
-}
-
-.listaPalavras{
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:25px;
-
-    width:100%;
-
-    margin-top:15px;
-
-}
-
-.palavra{
-
-    background:
-    linear-gradient(#4a2e13,#2b1707);
-
-    color:#f0cd74;
-
-    border:3px solid #b88d2f;
-
-    border-radius:10px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    box-shadow:
-    inset 0 0 0 2px #e2c96d;
-
-    padding:15px;
-
-    font-size:30px;
-
-    text-align:center;
-
-    cursor:pointer;
-
-    user-select:none;
-
-    min-height:90px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-.palavra:hover{
-
-    background:
-    linear-gradient(#65411d,#39200b);
-
-    transform:scale(1.03);
-
-}
-
-.timer{
-
-    font-family:'Cinzel',serif;
-
-    font-size:120px;
-
-    color:#ffd35c;
-
-    text-shadow:
-
-        0 0 12px rgba(255,210,70,.5);
-
-}
-
-.vermelho{
-
-    color:#ff4444;
-
-    text-shadow:
-    0 0 20px red;
-
-}
-
-.grande{
-
-    font-size:90px;
-
-}
-
-.pequeno{
-
-    font-size:22px;
-
-    opacity:.8;
-
-}
-
-.fade{
-
-    animation:fade .5s;
-
-}
-
-@keyframes fade{
-
-    from{
-
-        opacity:0;
-        transform:scale(.95);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:scale(1);
-
-    }
-
-}
-
-.pulse{
-
-    animation:pulse 1s infinite;
-
-}
-
-@keyframes pulse{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.08);
-
-    }
-
-    100%{
-
-        transform:scale(1);
-
-    }
-
-}
-
-.caixaPalavra{
-
-    background:#201206;
-
-    color:#efca68;
-
-    border:4px solid #c39734;
-
-    border-radius:12px;
-
-    box-shadow:
-    inset 0 0 0 2px #e4c76f;
-
-    padding:20px 50px;
-
-    min-width:420px;
-
-    font-size:50px;
-
-    text-align:center;
-
-}
-
-.oculto{
-
-    display:none;
-
-}
-
-#novoJogo{
-
-    background:
-    linear-gradient(#4a2d12,#281405);
-
-    position:absolute;
-
-    top:25px;
-
-    right:25px;
-
-    min-width:auto;
-
-    padding:10px 18px;
-
-    font-size:18px;
-
-    color:#efcb73;
-
-    border:2px solid #b58d36;
-
-    border-radius:10px;
-
-    box-shadow:
-    inset 0 0 0 2px #e1c76f;
-
-}
-
-#novoJogo:hover {
-    transform: scale(1.05);
-}
-
 @media (max-width: 768px){
 
     #app{
         margin:10px;
-        padding:20px 15px;
+        padding:50px 20px 25px;
         min-height:calc(100vh - 20px);
         border-radius:20px;
     }
+
 
     h1{
 
@@ -419,6 +18,7 @@ button:hover{
 
     }
 
+
     .titulo{
 
         flex-wrap:wrap;
@@ -427,13 +27,16 @@ button:hover{
 
     }
 
+
     h2{
         font-size:28px;
     }
 
+
     p{
         font-size:18px;
     }
+
 
     #conteudo{
 
@@ -443,39 +46,46 @@ button:hover{
 
     }
 
+
     button{
 
-        min-width:0;
+        min-width:auto;
 
-        width:100%;
+        width:auto;
 
-        max-width:350px;
+        max-width:90%;
 
         font-size:20px;
 
-        padding:15px 20px;
+        padding:15px 30px;
 
     }
+
 
     .listaPalavras{
 
         grid-template-columns:1fr;
 
-        width:100%;
+        width:auto;
+
+        max-width:100%;
 
         gap:15px;
 
     }
 
+
     .palavra{
 
-        width:100%;
+        width:auto;
+
+        max-width:90vw;
 
         min-height:70px;
 
         font-size:22px;
 
-        padding:15px;
+        padding:15px 25px;
 
         overflow-wrap:break-word;
 
@@ -486,13 +96,13 @@ button:hover{
 
         min-width:0;
 
-        width:100%;
+        width:auto;
 
-        max-width:100%;
+        max-width:90vw;
 
         font-size:32px;
 
-        padding:20px;
+        padding:20px 30px;
 
         overflow-wrap:break-word;
 
@@ -508,19 +118,22 @@ button:hover{
 
     #novoJogo{
 
-        position:relative;
+        position:absolute;
 
-        top:auto;
+        top:15px;
 
-        right:auto;
+        right:15px;
 
-        align-self:flex-end;
+        width:auto;
 
-        margin-bottom:15px;
+        min-width:auto;
 
         font-size:14px;
 
         padding:8px 12px;
 
+        z-index:5;
+
     }
+
 }
