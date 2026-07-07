@@ -39,6 +39,16 @@ body{
     background:#05070d;
 }
 
+#app::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+
+    background:
+        radial-gradient(circle at top,#1f355f,#0b1224 60%,#05070d);
+}
+
 .titulo{
     display:flex;
     justify-content:center;
