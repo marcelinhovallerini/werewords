@@ -403,51 +403,124 @@ button:hover{
 @media (max-width: 768px){
 
     #app{
-        padding:20px;
+        margin:10px;
+        padding:20px 15px;
+        min-height:calc(100vh - 20px);
+        border-radius:20px;
     }
 
     h1{
-        font-size:48px;
+
+        font-size:clamp(32px, 10vw, 48px);
+
+        text-align:center;
+
+        word-break:break-word;
+
+    }
+
+    .titulo{
+
+        flex-wrap:wrap;
+
+        gap:5px;
+
     }
 
     h2{
-        font-size:30px;
+        font-size:28px;
     }
 
     p{
-        font-size:20px;
+        font-size:18px;
+    }
+
+    #conteudo{
+
+        width:100%;
+
+        gap:20px;
+
     }
 
     button{
-        min-width:100%;
+
+        min-width:0;
+
+        width:100%;
+
+        max-width:350px;
+
         font-size:20px;
-        padding:18px;
+
+        padding:15px 20px;
+
     }
 
     .listaPalavras{
+
         grid-template-columns:1fr;
+
+        width:100%;
+
+        gap:15px;
+
     }
 
     .palavra{
-        font-size:24px;
-        padding:20px;
+
+        width:100%;
+
+        min-height:70px;
+
+        font-size:22px;
+
+        padding:15px;
+
+        overflow-wrap:break-word;
+
     }
+
 
     .caixaPalavra{
-        font-size:42px;
+
+        min-width:0;
+
+        width:100%;
+
+        max-width:100%;
+
+        font-size:32px;
+
         padding:20px;
+
+        overflow-wrap:break-word;
+
     }
+
 
     .timer{
-        font-size:72px;
+
+        font-size:70px;
+
     }
 
+
     #novoJogo{
-        top:10px;
-        right:10px;
-        min-width:unset;
-        width:auto;
-        padding:8px 14px;
-        font-size:16px;
+
+        position:relative;
+
+        top:auto;
+
+        right:auto;
+
+        align-self:flex-end;
+
+        margin-bottom:15px;
+
+        font-size:14px;
+
+        padding:8px 12px;
+
     }
 }
