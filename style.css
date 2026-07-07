@@ -400,6 +400,160 @@ button:hover{
     transform: scale(1.05);
 }
 
+.configuracao{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+
+.switchArea{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    font-size:28px;
+
+}
+
+
+.switch{
+
+    position:relative;
+
+    width:70px;
+
+    height:35px;
+
+}
+
+
+.switch input{
+
+    display:none;
+
+}
+
+
+.slider{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#555;
+
+    border-radius:30px;
+
+}
+
+
+.slider:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:27px;
+
+    height:27px;
+
+    left:4px;
+
+    top:4px;
+
+    background:white;
+
+    border-radius:50%;
+
+    transition:.3s;
+
+}
+
+
+.switch input:checked + .slider{
+
+    background:#b88d2f;
+
+}
+
+
+.switch input:checked + .slider:before{
+
+    transform:translateX(35px);
+
+}
+
+
+
+.jogadores{
+
+    font-size:28px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+.jogadores input{
+
+    width:80px;
+
+    font-size:28px;
+
+    text-align:center;
+
+}
+
+
+
+.opcoesDificuldade{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:15px;
+
+}
+
+
+.dificuldadeBtn{
+
+    min-width:180px;
+
+    opacity:.7;
+
+}
+
+
+.dificuldadeBtn.selecionado{
+
+    background:
+
+    linear-gradient(#b88d2f,#6a4320);
+
+    opacity:1;
+
+    transform:scale(1.05);
+
+}
+
 @media (max-width: 768px){
 
     #app{
