@@ -59,7 +59,11 @@ function mostrar(html){
 
 }
 
-let dificuldade = "medio";
+let dificuldade = null;
+
+let videnteAtivo = true;
+
+let quantidadeJogadores = 4;
 
 let palavras = [];
 
@@ -167,57 +171,154 @@ function sortear4(){
 
 inicio();
 
-function trocarDificuldade(){
-
-    const niveis = [
-        "muitoFacil",
-        "facil",
-        "medio",
-        "dificil",
-        "extremo"
-    ];
-
-    let atual = niveis.indexOf(dificuldade);
-
-    atual++;
-
-    if(atual >= niveis.length){
-        atual = 0;
-    }
-
-    dificuldade = niveis[atual];
-
-
-    document.getElementById("dificuldade").innerHTML =
-        "DIFICULDADE: " + dificuldade.toUpperCase();
-
-}
-
 function inicio(){
 
     clearInterval(timer);
 
     mostrar(`
 
-        <button id="iniciar">
-            INICIAR PARTIDA
-        </button>
 
-        <button id="dificuldade">
-            DIFICULDADE: ${dificuldade.toUpperCase()}
-        </button>
+        <div class="configuracao">
+
+
+            <label class="switchArea">
+
+                <span>🔮 Vidente</span>
+
+                <label class="switch">
+
+                    <input type="checkbox" id="vidente" checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </label>
+
+
+
+            <label class="jogadores">
+
+                👥 Jogadores:
+
+                <input 
+                type="number"
+                id="quantidadeJogadores"
+                min="1"
+                max="20"
+                value="4">
+
+            </label>
+
+
+
+            <h2>Dificuldade</h2>
+
+
+            <div class="opcoesDificuldade">
+
+
+                <button class="dificuldadeBtn"
+                data-nivel="muitoFacil">
+                    Muito Fácil
+                </button>
+
+
+                <button class="dificuldadeBtn"
+                data-nivel="facil">
+                    Fácil
+                </button>
+
+
+                <button class="dificuldadeBtn"
+                data-nivel="medio">
+                    Médio
+                </button>
+
+
+                <button class="dificuldadeBtn"
+                data-nivel="dificil">
+                    Difícil
+                </button>
+
+
+                <button class="dificuldadeBtn"
+                data-nivel="extremo">
+                    Extremo
+                </button>
+
+
+            </div>
+
+
+
+            <button id="iniciar">
+
+                INICIAR PARTIDA
+
+            </button>
+
+
+        </div>
+
 
     `);
 
 
+
     document
     .getElementById("iniciar")
-    .onclick = dormirTodos;
+    .onclick=()=>{
+
+
+        dificuldade = dificuldade || "medio";
+
+
+        videnteAtivo =
+        document.getElementById("vidente").checked;
+
+
+        quantidadeJogadores =
+        Number(
+            document.getElementById("quantidadeJogadores").value
+        );
+
+
+        dormirTodos();
+
+
+    };
+
+
 
 
     document
-    .getElementById("dificuldade")
-    .onclick = trocarDificuldade;
+    .querySelectorAll(".dificuldadeBtn")
+    .forEach(botao=>{
+
+
+        botao.onclick=()=>{
+
+
+            document
+            .querySelectorAll(".dificuldadeBtn")
+            .forEach(b=>
+                b.classList.remove("selecionado")
+            );
+
+
+            botao.classList.add("selecionado");
+
+
+            dificuldade =
+            botao.dataset.nivel;
+
+
+        };
+
+
+    });
+
 
 }
 
@@ -386,7 +487,15 @@ function lobisomemDorme(){
 
     falar("Lobisomem, feche os olhos.",()=>{
 
-        setTimeout(vidente,2000);
+        if(videnteAtivo){
+
+    setTimeout(vidente,2000);
+
+	}else{
+
+    setTimeout(todosAcordam,2000);
+
+}
 
     });
 
