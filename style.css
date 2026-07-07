@@ -3,8 +3,7 @@
 html{
     width:100%;
     min-height:100%;
-    background:
-        radial-gradient(circle at top,#1f355f,#0b1224 60%,#05070d);
+    background:#05070d;
 }
 
 *{
@@ -20,8 +19,7 @@ body{
     width:100%;
     overflow:hidden;
 
-    background:
-    radial-gradient(circle at top,#1f355f,#0b1224 60%,#05070d);
+    background:#05070d;
 
     color:white;
 
@@ -38,8 +36,7 @@ body{
 
     padding:40px;
 
-    background:
-        radial-gradient(circle at top,#1f355f,#0b1224 60%,#05070d);
+    background:#05070d;
 }
 
 .titulo{
